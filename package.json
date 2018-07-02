@@ -1,8 +1,16 @@
 {
   "name": "@cfn-modules/lambda-event-source-sqs-queue",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "SQS queue event source for AWS Lambda function",
   "author": "Michael Wittig <michael@widdix.de>",
   "license": "Apache-2.0",
-  "keywords": ["cfn-modules"]
+  "keywords": ["cfn-modules"],
+  "homepage": "https://github.com/cfn-modules",
+  "bugs": {
+    "url": "https://github.com/cfn-modules/lambda-event-source-sqs-queue/issues"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/cfn-modules/lambda-event-source-sqs-queue.git"
+  }
 }

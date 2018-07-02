@@ -59,6 +59,6 @@ Outputs:
   ModuleId:
     Value: 'lambda-event-source-sqs-queue'
   ModuleVersion:
-    Value: '0.0.3'
+    Value: '0.0.4'
   StackName:
     Value: !Ref 'AWS::StackName'
