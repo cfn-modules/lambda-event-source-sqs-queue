@@ -12,6 +12,8 @@ npm i @cfn-modules/lambda-event-source-sqs-queue
 
 ## Usage
 
+> WARNING: We recommend to set the `ReservedConcurrentExecutions` parameter in the lambda-function module when using this module. If you do not set the parameter and many messages arrive, the Lambda function scales up to the regional limit which impacts other Lambda functions in the same region in your AWS account. For most use cases a value of 10 should be fine. If the SQS queue length grows you might want to increase the number.
+
 ```
 ---
 AWSTemplateFormatVersion: '2010-09-09'

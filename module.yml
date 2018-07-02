@@ -35,7 +35,7 @@ Resources:
       Roles:
       - 'Fn::ImportValue': !Sub '${LambdaModule}-RoleName'
       PolicyName: !Sub
-      - 'sqs-queue-access-${QueueName}' # ASCII characters minus the following reserved characters: backward slash (\), forward slash (/), asterisk (*), question mark (?), and white space
+      - 'cfn-modules-${QueueName}' # ASCII characters minus the following reserved characters: backward slash (\), forward slash (/), asterisk (*), question mark (?), and white space
       - QueueName: {'Fn::ImportValue': !Sub '${QueueModule}-Name'}
       PolicyDocument:
         Version: '2012-10-17'
@@ -59,6 +59,6 @@ Outputs:
   ModuleId:
     Value: 'lambda-event-source-sqs-queue'
   ModuleVersion:
-    Value: '0.0.2'
+    Value: '0.0.3'
   StackName:
     Value: !Ref 'AWS::StackName'
