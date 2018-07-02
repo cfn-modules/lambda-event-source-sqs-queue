@@ -1,0 +1,63 @@
+---
+# Copyright 2018 widdix GmbH
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'cfn-modules: AWS Lambda event source: SQS queue'
+# cfn-modules:implements()
+Parameters:
+  LambdaModule:
+    Description: 'Stack name of lambda-function module.'
+    Type: String
+  QueueModule:
+    Description: 'Stack name of sqs-queue module.'
+    Type: String
+  BatchSize:
+    Description: 'The largest number of messages that Lambda retrieves from your queue at once.'
+    Type: Number
+    Default: 10
+    MinValue: 1
+    MaxValue: 10000
+Resources:
+  Policy:
+    Type: 'AWS::IAM::Policy'
+    Properties:
+      Roles:
+      - 'Fn::ImportValue': !Sub '${LambdaModule}-RoleName'
+      PolicyName: !Sub
+      - 'sqs-queue-access-${QueueName}' # ASCII characters minus the following reserved characters: backward slash (\), forward slash (/), asterisk (*), question mark (?), and white space
+      - QueueName: {'Fn::ImportValue': !Sub '${QueueModule}-Name'}
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Effect: Allow
+          Action:
+          - 'sqs:DeleteMessage'
+          - 'sqs:ChangeMessageVisibility'
+          - 'sqs:ReceiveMessage'
+          - 'sqs:GetQueueAttributes'
+          Resource: {'Fn::ImportValue': !Sub '${QueueModule}-Arn'}
+  EventSourceMapping:
+    Type: 'AWS::Lambda::EventSourceMapping'
+    Properties:
+      BatchSize: !Ref BatchSize
+      Enabled: true
+      EventSourceArn: {'Fn::ImportValue': !Sub '${QueueModule}-Arn'}
+      FunctionName: {'Fn::ImportValue': !Sub '${LambdaModule}-Arn'}
+Outputs:
+  ModuleId:
+    Value: 'lambda-event-source-sqs-queue'
+  ModuleVersion:
+    Value: '0.0.1'
+  StackName:
+    Value: !Ref 'AWS::StackName'
