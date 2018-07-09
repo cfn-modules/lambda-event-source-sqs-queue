@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/cfn-modules/lambda-event-source-sqs-queue.svg?branch=master)](https://travis-ci.org/cfn-modules/lambda-event-source-sqs-queue)
+[![NPM version](https://img.shields.io/npm/v/@cfn-modules/lambda-event-source-sqs-queue.svg)](https://www.npmjs.com/package/@cfn-modules/lambda-event-source-sqs-queue)
+
 # cfn-modules: AWS Lambda event source: SQS queue
 
 SQS queue event source for AWS Lambda function.
