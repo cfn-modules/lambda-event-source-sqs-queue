@@ -22,7 +22,7 @@ npm i @cfn-modules/lambda-event-source-sqs-queue
 AWSTemplateFormatVersion: '2010-09-09'
 Description: 'cfn-modules example'
 Resources:
-  Function:
+  EventSource:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
       Parameters:
