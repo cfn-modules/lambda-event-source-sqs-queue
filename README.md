@@ -26,7 +26,7 @@ Resources:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
       Parameters:
-        LambdaModule: !GetAtt 'Lambda.Outputs.StackName' # required
+        LambdaModule: !GetAtt 'Function.Outputs.StackName' # required
         QueueModule: !GetAtt 'Queue.Outputs.StackName' # required
         BatchSize: 10 # optional
       TemplateURL: './node_modules/@cfn-modules/lambda-event-source-sqs-queue/module.yml'
