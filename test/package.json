@@ -3,9 +3,9 @@
   "dependencies": {
     "eslint": "5.6.0",
     "ava": "0.25.0",
-    "@cfn-modules/test": "0.2.0",
+    "@cfn-modules/test": "0.3.0",
     "@cfn-modules/lambda-event-source-sqs-queue": "file:../",
-    "@cfn-modules/lambda-function": "1.0.0",
+    "@cfn-modules/lambda-function": "1.1.0",
     "@cfn-modules/sqs-queue": "1.0.0"
   },
   "scripts": {
