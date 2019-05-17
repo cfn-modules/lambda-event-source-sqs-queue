@@ -32,6 +32,15 @@ Resources:
       TemplateURL: './node_modules/@cfn-modules/lambda-event-source-sqs-queue/module.yml'
 ```
 
+## Examples
+
+* [serverless-sqs-queue](https://github.com/cfn-modules/docs/tree/master/examples/serverless-sqs-queue)
+
+## Related modules
+
+* [sqs-queue](https://github.com/cfn-modules/sqs-queue)
+* [lambda-function](https://github.com/cfn-modules/lambda-function)
+
 ## Parameters
 
 <table>
