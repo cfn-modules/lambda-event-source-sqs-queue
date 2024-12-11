@@ -1,11 +1,11 @@
 {
   "private": true,
   "dependencies": {
-    "eslint": "7.6.0",
-    "ava": "3.11.1",
-    "@cfn-modules/test": "0.7.3",
+    "eslint": "7.32.0",
+    "ava": "3.15.0",
+    "@cfn-modules/test": "0.9.1",
     "@cfn-modules/lambda-event-source-sqs-queue": "file:../",
-    "@cfn-modules/lambda-function": "2.9.0",
+    "@cfn-modules/lambda-function": "2.10.0",
     "@cfn-modules/sqs-queue": "1.2.0"
   },
   "scripts": {
